@@ -1,0 +1,7 @@
+<%= simple_form_for [@cocktail, @dose] do |f| %>
+  <div class=“form-group”>
+    <%= f.input :description %>
+    <%= f.association :ingredient, collection: Ingredient.where.not(id: @cocktail.ingredients).order(name: :asc) %>
+  </div>
+  <%= f.submit class: 'btn btn-primary' %>
+<% end %>
