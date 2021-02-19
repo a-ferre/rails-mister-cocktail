@@ -9,6 +9,7 @@
     <div class=“form-group”>
       <%= f.label :cocktail %>
       <%= f.input :name %>
+      <%= f.input :photo, as: :file %>
     </div>
     <%= f.submit class: 'btn btn-primary' %>
   <% end %>
