@@ -1,9 +1,16 @@
 <div class="container">
-  <h1>My cocktails</h1>
+  <br>
+  <br>
+  <br>
+  <div class="text-center">
+    <h1>Cocktails For You</h1>
+  </div>
+  <br>
+  <br>
   <div class="cards">
     <% @cocktails.each do |cocktail| %>
       <%= link_to cocktail_path(cocktail) do %>
-        <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
+        <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= cocktail.photo.attached? ? cl_image_path(cocktail.photo.key, height: 300, width: 400, crop: :fill) : "" %>)">
           <%= cocktail.name %>
         </div>
       <% end %>
@@ -11,7 +18,10 @@
   </div>
   <br>
   <br>
-  <div>
+  <div class="text-center">
     <%= link_to "Add another cocktail", new_cocktail_path%>
+    <br>
+    <br>
+    <br>
   </div>
 </div>

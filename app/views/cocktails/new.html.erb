@@ -1,4 +1,4 @@
-<div class=“container”>
+<div class="container mt-5">
   <h1>Add a cocktail</h1>
   <% if @cocktail.errors.any? %>
     <% @cocktail.errors.full_messages.each do |msg| %>
@@ -9,6 +9,7 @@
     <div class=“form-group”>
       <%= f.label :cocktail %>
       <%= f.input :name %>
+      <%= f.input :photo, as: :file %>
     </div>
     <%= f.submit class: 'btn btn-primary' %>
   <% end %>
